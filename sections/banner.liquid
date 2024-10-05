@@ -1,5 +1,3 @@
-{{ 'banner.css' | asset_url | stylesheet_tag }}
-
 <!-- Custom Header Section -->
 <section class="custom-header-section">
   <!-- Header containing left, center, and right sections -->
@@ -37,6 +35,346 @@
   </div>
 </section>
 
+<style>
+        /* CSS Variables */
+        :root {
+          --font-family: Jost;
+          --text-color: #000000;
+          --background-color: #F5F5F5;
+          --highlight-color: #FFF544;
+          --transition-duration: 0.3s;
+          --button-hover-color: #FFC300;
+        }
+
+        /* General Styling */
+        .custom-header-section {
+          width: 100%;
+        }
+
+        /* Header styling */
+        .header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 50px;
+          width: 100%;
+          background-color: var(--background-color);
+        }
+
+        .header__left h1, .header__center h2 {
+          font-family: var(--font-family);
+          margin: 0;
+          text-align: left;
+        }
+
+        .header__left h1 {
+          font-size: 24px;
+          font-weight: 900;
+        }
+
+        .header__center h2 {
+          font-size: 14px;
+        }
+
+       /* General button styles */
+      .custom-header-section .header__right .header__button {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #FFF544;
+        text-decoration: none;
+        width: 207px;
+        height: 44px;
+        gap: 10px;
+        opacity: 1;
+        border: none;
+        position: relative;
+        overflow: hidden;
+        transition: background-color 300ms ease-out; /* Smooth transition for background */
+      }
+
+      /* Text and arrow initial styles */
+      .custom-header-section .header__button span,
+      .custom-header-section .header__button img.button-arrow {
+        z-index: 1; /* Ensure they stay above the background */
+        transition: color 300ms ease-out, filter 300ms ease-out; /* Smooth transition for text & arrow */
+      }
+
+      .custom-header-section .header__button span {
+        font-family: Jost;
+        font-size: 16px;
+        font-weight: 400;
+        color: #000000;
+      }
+
+      /* Arrow initial state */
+      .custom-header-section .header__button img.button-arrow {
+        width: 24px;
+        height: auto;
+      }
+
+      /* Hover effect: background slide in and color change */
+      .custom-header-section .header__button.choose-gift::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        transition: left 300ms ease-out; /* Smooth transition for background slide */
+        z-index: 0;
+      }
+
+      /* On hover: slide in background and change text/arrow color */
+      .custom-header-section .header__button.choose-gift:hover::before {
+        left: 0;
+      }
+
+      .custom-header-section .header__button.choose-gift:hover span {
+        color: #FFFFFF; /* Text turns white */
+      }
+
+      .custom-header-section .header__button.choose-gift:hover img.button-arrow {
+        filter: invert(1); /* Arrow turns white */
+      }
+
+
+        /* Image container styling */
+        .header__image-container {
+          position: relative;
+          text-align: center;
+          overflow: hidden; /* Prevent overflow */
+        }
+
+        .header__image {
+          width: 100%;
+          max-width: 1440px;
+          height: auto;
+          display: block;
+          margin-bottom: 0; /* No gap between image and bottom text */
+        }
+
+        /* Overlay Styling */
+        .overlay-punchline, .overlay-description {
+          position: absolute;
+          left: 67px;
+          font-family: var(--font-family);
+          color: var(--text-color);
+          text-align: left; /* Align description left */
+        }
+
+        .overlay-punchline {
+          top: 425px;
+          font-size: 70px;
+          line-height: 70px;
+        }
+
+        .overlay-description {
+          top: 545px;
+          font-size: 18px;
+          line-height: 28px;
+          width: 483px; /* Set description width */
+        }
+
+        /* SHOP NOW and CHOOSE GIFT button unified styling */
+        .header__button.overlay-button, .header__button.choose-gift {
+          background-color: #000000;
+          color: #FFFFFF;
+          width: 220px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: background-color var(--transition-duration), box-shadow var(--transition-duration);
+        }
+
+        .header__button.overlay-button:hover, .header__button.choose-gift:hover {
+          background-color: #333333;
+          box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Unified hover effect */
+        }
+
+                      /* Shop Now Button Styling */
+               .custom-header-section .overlay-button {
+                 position: absolute;
+                 width: 220px;
+                 height: 50px;
+                 top: 679px;
+                 left: 67px;
+                 display: flex;
+                 align-items: center;
+                 justify-content: center;
+                 gap: 10px;
+                 background-color: #000000; /* Ensure background color is set */
+                 text-decoration: none;
+                 padding: 10px 20px;
+                 z-index: 10; /* Ensure it stays above other elements */
+                 overflow: hidden; /* To hide the sliding background effect */
+               }
+
+               /* Add pseudo-element for sliding background */
+               .custom-header-section .overlay-button::before {
+                 content: "";
+                 position: absolute;
+                 top: 0;
+                 left: -100%; /* Start the background from outside the button on the left */
+                 width: 100%;
+                 height: 100%;
+                 background-color: #FFF544; /* Hover background color */
+                 transition: left 300ms ease-out; /* Smooth animation */
+                 z-index: 0; /* Ensure the pseudo-element stays behind the text */
+               }
+
+               /* On hover, slide the background in from left to right */
+               .custom-header-section .overlay-button:hover::before {
+                 left: 0; /* Move the background into view */
+               }
+
+               /* Styling for the text and arrow */
+               .custom-header-section .overlay-button span {
+                 position: relative;
+                 z-index: 1; /* Ensure the text stays above the background */
+                 font-family: Jost;
+                 font-size: 16px;
+                 font-weight: 400;
+                 color: #FFFFFF; /* Initially white */
+                 line-height: 20.48px;
+                 text-align: center;
+                 transition: color 300ms ease-out; /* Smooth text color transition */
+               }
+
+               .custom-header-section .overlay-button img.button-arrow {
+                 position: relative;
+                 z-index: 1; /* Ensure the arrow stays above the background */
+                 width: 24px;
+                 height: auto;
+                 transition: filter 300ms ease-out; /* Smooth arrow color transition */
+                 filter: invert(1); /* Initial white arrow */
+               }
+
+               /* On hover, change text and arrow color */
+               .custom-header-section .overlay-button:hover span {
+                 color: #000000; /* Text turns black */
+               }
+
+               .custom-header-section .overlay-button:hover img.button-arrow {
+                 filter: invert(0); /* Arrow turns black */
+               }
+
+
+
+
+        /* Bottom text styling */
+        .bottom-text {
+          text-align: center;
+          display: flex;
+          align-items:center;
+          padding: 10px 50px;
+          height:34px;
+          background-color: var(--background-color);
+        }
+
+        .bottom-text p {
+          font-family: var(--font-family);
+          font-size: 16px;
+          color: var(--text-color);
+            margin: 0 auto;
+        }
+                /* Mobile View */
+  @media only screen and (max-width: 420px) {
+
+    .custom-header-section .header {
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+      width: 342px; /* Set the header width to 342px */
+      margin: 0 auto; /* Center the header horizontally */
+    }
+
+    /* Hide center and right headers */
+    .header__right, .header__center {
+      display: none !important;
+    }
+
+    .custom-header-section .header__left {
+      width: 100%; /* Ensure left header takes up the available width */
+    }
+
+    .header__left h1 {
+      font-size: 1.5rem; /* Adjust font size for mobile */
+      text-align: center;
+    }
+
+    .custom-header-section .header__image-container {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+
+    .custom-header-section .header__image {
+      width: 342px;
+      height: 186px;
+    }
+
+    /* Punchline and description placed between header and image */
+    .overlay-punchline, .overlay-description {
+      position: relative;
+      width: 100%;
+      text-align: center;
+      padding: 5px 10px;
+      z-index: 99;
+    }
+
+    .overlay-punchline {
+      font-size: 1.5rem; /* Reduced size for mobile */
+      margin-bottom: 5px;
+      top: -12vh; /* Use viewport height for responsiveness */
+      left: 6%; /* Keep the left offset relative */
+      font-family: Jost;
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 30px;
+      text-align: center;
+    }
+
+    .overlay-description {
+      font-size: 1rem; /* Adjust description size */
+      margin-bottom: 10px;
+      z-index: 99;
+      font-family: Jost;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20.8px;
+      text-align: center;
+      top: 8vh; /* Use viewport height for positioning */
+      left: 4%; /* Keep the left offset relative */
+    }
+
+    /* Shop Now Button (Mobile size adjustments) */
+    .custom-header-section .overlay-button {
+      width: 60%;
+      height: 40px;
+      padding: 8px 15px;
+      display: block;
+      margin: 10px auto;
+      z-index: 99;
+      top: 35vh; /* Responsive positioning with viewport height */
+    }
+
+    /* Bottom Text matches image width */
+    .custom-header-section .bottom-text {
+      width: 342px; /* Match the image width */
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .custom-header-section .bottom-text p {
+      font-size: 1rem; /* Adjust for mobile */
+    }
+  }
+</style>
 
 {% schema %}
 {
