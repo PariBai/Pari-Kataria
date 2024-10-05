@@ -1,0 +1,95 @@
+{{ 'banner.css' | asset_url | stylesheet_tag }}
+
+<!-- Custom Header Section -->
+<section class="custom-header-section">
+  <!-- Header containing left, center, and right sections -->
+  <div class="header">
+    <div class="header__left">
+      <h1>{{ section.settings.left_text }}</h1>
+    </div>
+
+    <div class="header__center">
+      <h2>{{ section.settings.center_text }}</h2>
+    </div>
+
+    <div class="header__right">
+      <a href="{{ section.settings.button_link }}" class="header__button choose-gift">
+        <span>CHOOSE GIFT</span>
+        <img src="{{ 'arrow.svg' | asset_url }}" alt="Arrow" class="button-arrow" width="24">
+      </a>
+    </div>
+  </div>
+
+  <!-- Fixed Image with Overlayed Divs -->
+  <div class="header__image-container">
+    <img src="{{ 'fixed-image.png' | asset_url }}" alt="Fixed Banner Image" class="header__image">
+    <div class="overlay-punchline">{{ section.settings.punchline }}</div>
+    <div class="overlay-description">{{ section.settings.description }}</div>
+    <a href="{{ section.settings.shop_now_link }}" class="header__button overlay-button shop-now">
+      <span>SHOP NOW</span>
+      <img src="{{ 'arrow.svg' | asset_url }}" alt="Arrow" class="button-arrow" width="24">
+    </a>
+  </div>
+
+  <!-- Customizable Text Below the Fixed Image -->
+  <div class="bottom-text">
+    <p>{{ section.settings.custom_text }}</p>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Custom Header Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "left_text",
+      "label": "Left Header Text",
+      "default": "TISSO VISON"
+    },
+    {
+      "type": "text",
+      "id": "center_text",
+      "label": "Center Header Text",
+      "default": "Find the ideal gift for your loved ones."
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "punchline",
+      "label": "Brand Punchline",
+      "default": "The Gift Guide"
+    },
+    {
+      "type": "text",
+      "id": "description",
+      "label": "Brand Description",
+      "default": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season."
+    },
+    {
+      "type": "url",
+      "id": "shop_now_link",
+      "label": "Shop Now Link",
+
+    },
+    {
+  "type": "text",
+  "id": "custom_text",
+  "label": "Custom Centered Text",
+  "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL."
+}
+
+  ],
+  "presets": [
+    {
+      "name": "banner"
+    }
+  ]
+}
+{% endschema %}
