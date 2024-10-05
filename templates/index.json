@@ -49,10 +49,17 @@
         "shop_now_link": "",
         "custom_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL."
       }
+    },
+    "grid_section_egjkzq": {
+      "type": "GridSection",
+      "settings": {
+        "custom_grid_text": "Tisso vision in the wild"
+      }
     }
   },
   "order": [
     "featured_collection",
-    "banner_Fx6Q6K"
+    "banner_Fx6Q6K",
+    "grid_section_egjkzq"
   ]
 }
