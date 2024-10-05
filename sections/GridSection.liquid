@@ -1,0 +1,202 @@
+<!-- Adding a css file  -->
+{{ 'GridSection.css' | asset_url | stylesheet_tag }}
+<!-- Adding a js file  -->
+{{ 'GridSection.js.js' | asset_url | script_tag }}
+<!-- Popup -->
+<div class="popup hidden" id="product-popup">
+  <div class="popup-content">
+    <div class="image-and-details">
+      <img src="{{ section.settings.product_image_1 | asset_url }}" alt="Product Image" class="product-image">
+
+      <div class="product-details">
+        <h2 class="product-title">{{ section.settings.product_title }}</h2>
+        <p class="product-price">{{ section.settings.product_price }}</p>
+        <p class="product-description">{{ section.settings.product_description }}</p>
+      </div>
+    </div>
+
+    <div class="options-container">
+      <div class="color-options">
+        <span class="color-label">Color:</span>
+        <div class="color-boxes">
+          <div class="color-box">
+            <div class="color-rectangle"></div>
+            <div class="color-text">Blue</div>
+          </div>
+          <div class="color-box">
+            <div class="color-rectangle"></div>
+            <div class="color-text">Black</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="size-options">
+        <label for="size-dropdown">Size</label>
+        <select id="size-dropdown" class="size-dropdown">
+          <option value="" disabled selected>Choose your size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+          <!-- Add more sizes as needed -->
+        </select>
+      </div>
+
+      <div class="add-to-cart">
+        <span>ADD TO CART</span>
+        <img src="{{ 'Line 15.png' | asset_url }}" alt="Arrow" class="button-arrow" width="24" height="auto">
+      </div>
+    </div>
+
+    <img
+      src="{{ 'close-icon.png' | asset_url }}"
+      alt="Close"
+      class="close-icon"
+      onclick="closePopup()"
+      width="22"
+      height="22"
+    >
+  </div>
+</div>
+
+<!-- Grid Section -->
+<section class="custom-grid-section">
+  <div class="grid-container">
+    <!-- Custom Text Div -->
+    <div class="custom-text">
+      <p>{{ section.settings.custom_grid_text }}</p>
+    </div>
+
+    <!-- Product Listings -->
+    <div class="product-listings">
+      <!-- Loop to display six customizable images with unique defaults -->
+      <div class="product-item">
+        <div class="icon-container" style="top: 238px; left: 256.5px;">
+          <img
+            src="{{ 'Add icon.png' | asset_url }} "
+            height="22"
+            width="22"
+            alt="Add Icon 1"
+            class="add-icon"
+            data-product-image="{{ section.settings.product_image_1 | default: 'default-image-1.png' | asset_url }}"
+            data-product-title="Tailored Jacket"
+            data-product-price="€980,00"
+            data-product-description="This tailored jacket is crafted from jersey featuring a micro Monogram motif in relief."
+            data-product-colors="Blue,Black"
+          >
+        </div>
+        <img
+          src="{{ section.settings.product_image_1 | default: 'default-image-1.png' | asset_url }}"
+          alt="Product 1"
+          width="433"
+          height="444"
+        >
+      </div>
+      <div class="product-item">
+        <div class="icon-container" style="top: 222px; left: 355.5px;">
+          <img src="{{ 'Add icon.png' | asset_url }}" alt="Add Icon 3" class="add-icon">
+        </div>
+        <img
+          src="{{ section.settings.product_image_3 | default: 'default-image-2.png' | asset_url }}"
+          alt="Product 3"
+          width="433"
+          height="444"
+        >
+      </div>
+      <div class="product-item">
+        <div class="icon-container" style="top: 82px; left: 261px;">
+          <img src="{{ 'Add icon.png' | asset_url }}" alt="Add Icon 3" class="add-icon">
+        </div>
+        <img
+          src="{{ section.settings.product_image_3 | default: 'default-image-3.png' | asset_url }}"
+          alt="Product 3"
+          width="433"
+          height="444"
+        >
+      </div>
+      <div class="product-item">
+        <div class="icon-container" style="top: 71px; left: 301.5px;">
+          <img src="{{ 'Add icon.png' | asset_url }}" alt="Add Icon 4" class="add-icon">
+        </div>
+        <img
+          src="{{ section.settings.product_image_4 | default: 'default-image-4.png' | asset_url }}"
+          alt="Product 4"
+          width="433"
+          height="444"
+        >
+      </div>
+      <div class="product-item">
+        <div class="icon-container" style="top: 104px; left: 212.5px;">
+          <img src="{{ 'Add icon.png' | asset_url }}" alt="Add Icon 5" class="add-icon">
+        </div>
+        <img
+          src="{{ section.settings.product_image_5 | default: 'default-image-5.png' | asset_url }}"
+          alt="Product 5"
+          width="433"
+          height="444"
+        >
+      </div>
+      <div class="product-item">
+        <div class="icon-container" style="top: 164px; left: 319.5px;">
+          <img src="{{ 'Add icon.png' | asset_url }}" alt="Add Icon 6" class="add-icon">
+        </div>
+        <img
+          src="{{ section.settings.product_image_6 | default: 'default-image-6.png' | asset_url }}"
+          alt="Product 6"
+          width="433"
+          height="444"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% schema %}
+{
+  "name": "Grid Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_grid_text",
+      "label": "Custom Grid Text",
+      "default": "Tisso vision in the wild"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_1",
+      "label": "Product Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_2",
+      "label": "Product Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_3",
+      "label": "Product Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_4",
+      "label": "Product Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_5",
+      "label": "Product Image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image_6",
+      "label": "Product Image 6"
+    }
+  ],
+  "presets": [{
+    "name": "Grid Section"
+  }]
+}
+{% endschema %}

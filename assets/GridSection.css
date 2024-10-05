@@ -1,0 +1,384 @@
+
+                                  .custom-grid-section {
+                                    margin: 90px 51.5px 51.5px 51.5px; /* Top: 90px, Left/Right/Bottom: 51.5px */
+                                    width: 1339px; /* Total width of the section */
+                                  }
+
+                                  .grid-container {
+                                    display: block; /* Remove flex */
+                                  }
+
+                                  .custom-text {
+                                    width: 372px;
+                                    height: 43px;
+                                  }
+
+                                  .custom-text p {
+                                    font-family: Lustria;
+                                    font-size: 36px;
+                                    font-weight: 400;
+                                    line-height: 43.2px;
+                                    text-align: left;
+                                    color: #000000;
+                                    margin: 0; /* Remove default margins */
+                                  }
+
+                                  /* Product Listings Styling */
+                                  .product-listings {
+                                    display: grid; /* Use grid for layout */
+                                    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+                                    gap: 20px; /* Equal gap between items */
+                                    margin-top: 30px; /* Gap between text and images */
+                                  }
+
+                                  .product-item {
+                                    position: relative; /* Enable positioning of the icon */
+                                    width: 433px; /* Fixed width for product items */
+                                    height: 444px; /* Fixed height for product items */
+                                    /* Black border */
+                                  }
+
+                                  .product-item img {
+                                    width: 100%; /* Take full width of product item */
+                                    height: 100%; /* Full height of product item */
+                                    object-fit: cover; /* Cover to fill the item */
+                                  }
+
+                                  .icon-container {
+                                    position: absolute; /* Positioning the icon absolutely */
+                                    width: 22px; /* Fixed width for icon */
+                                    height: 22px; /* Fixed height for icon */
+                                  }
+
+                                  .add-icon {
+                                    width: 100%; /* Make the icon responsive to its container */
+                                    height: 100%; /* Make the icon responsive to its container */
+                                    object-fit: cover; /* Keep aspect ratio */
+                                  }
+                                  .popup {
+                                  position: fixed;
+                                  top: 0;
+                                  left: 0;
+                                  width: 100%;
+                                  height: 100%;
+                                  background: rgba(0, 0, 0, 0.5);
+                                  display: flex;
+                                  justify-content: center;
+                                  align-items: center;
+                                  z-index: 9999;
+                                }
+
+                                .popup.hidden {
+                                  display: none;
+                                }
+
+                                .popup-content {
+                                  background: #FFFFFF;
+                                  width: 311px;
+
+                                  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+                                  position: relative;
+                                  padding: 20px;
+                                  display: flex;
+                                  flex-direction: column;
+                                  align-items: flex-start;
+                                }
+
+                                .image-and-details {
+                                  display: flex;
+                                  align-items: flex-start; /* Align image and details at the top */
+                                  gap: 15px; /* Add space between the image and details */
+                                  margin-bottom: 9px; /* Add space below the image-and-details container */
+                                }
+
+                                .product-image {
+                                  width: 120px;
+                                  height: 140px;
+                                  opacity: 1;
+                                  margin-top:14px;
+
+
+                                }
+
+                                .product-details {
+                                  display: flex;
+                                  flex-direction: column;
+                                  justify-content: flex-start;
+                                }
+
+                                .product-title {
+                                  font-family: Jost;
+                                  font-size: 16px;
+                                  font-weight: 400;
+                                  color: #000;
+                                  margin: 42 15 5 0px;
+                                }
+
+                                .product-price {
+                                  font-family: Lustria;
+                                  font-size: 16px;
+                                  color: #000000;
+                                  margin: 0 0 5px;
+
+                              font-weight: 400;
+                              line-height: 19.2px;
+                              text-align: left;
+
+                                }
+
+                                .product-description {
+                                  font-family: Jost;
+                                  font-size: 14px;
+                                  color: #000;
+                                  margin: 0 0 10px;
+                                  word-wrap: break-word;
+                                  max-width: 100%;
+
+                              font-weight: 300;
+                              line-height: 15.4px;
+                              letter-spacing: -0.01em;
+                              text-align: left;
+                                  margin-top:12px;
+                                  width: 146px;
+                            height: 60px;
+                            top: 119px;
+                            left: 145px;
+
+
+
+                                }
+
+                                .options-container {
+                                  display: flex;
+                                  flex-direction: column;
+                                  gap: 5px;
+                                  width: 100%;
+                                  margin-top: 5px;
+                                }
+
+                                .color-options {
+                                  margin-bottom: 3px;
+                                }
+
+                                .color-label {
+                                  font-family: 'Jost', sans-serif;
+                                  font-size: 14px;
+                                  font-weight: 400;
+                                  color: #333333;
+                                  line-height: 18.2px
+
+                                }
+
+                               .color-boxes {
+                            display: flex;
+
+                            margin-top: 5px;
+                          }
+
+                          .color-box {
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-start;
+                            width: 271px;
+                            height: 40px;
+                            border: 0.5px solid #000000;
+                            padding: 0 10px; /* Add some padding to separate text from the box edge */
+                          }
+
+                          .color-box .color-rectangle {
+                            width: 4.84px;
+                            height: 39.63px;
+                            background: #000000; /* Default color, replace with dynamic color */
+                            margin-right: 10px; /* Space between color rectangle and text */
+                          }
+
+                          .color-box .color-text {
+                            font-family: Jost;
+                            font-size: 18px;
+                            font-weight: 400;
+                            line-height: 18px;
+                            letter-spacing: -0.02em;
+                            text-align: left;
+                            color: #000; /* Color of the text */
+
+
+                          }
+
+
+                                .size-options {
+                                  margin-bottom: 15px;
+                                  width: 100%;
+                                }
+                            .size-options label {
+                      font-family: Jost; /* Font family */
+                      font-size: 14px; /* Font size */
+                      font-weight: 400; /* Font weight */
+                      color: #333333; /* Text color */
+                      line-height: 18.2px; /* Line height */
+                      margin-bottom: 5px; /* Space below the label */
+                    }
+
+
+                                .size-dropdown {
+                                  width: 100%;
+                                  height: 40px;
+                                  margin-top: 5px;
+                                  border: 0.5px solid #000;
+                                }
+
+                          .add-to-cart {
+                display: inline-flex; /* Use inline-flex to align items */
+                align-items: center; /* Center items vertically */
+                padding: 10px 10px; /* Adjust padding for the button */
+                background-color: #000000; /* Black background */
+                text-decoration: none; /* No underline */
+                width: 100%; /* Full width */
+                height: 45px; /* Fixed height */
+                opacity: 1; /* Full opacity */
+                border: none; /* No border */
+                position: relative; /* For positioning */
+                overflow: hidden; /* Ensure hover effect stays within button */
+
+              }
+
+              .add-to-cart span {
+                font-family: Jost; /* Font family */
+                font-size: 16px; /* Font size */
+                font-weight: 400; /* Font weight */
+                line-height: 20.48px; /* Line height */
+                color: #FFFFFF; /* White text */
+                z-index: 1; /* Keeps text above the background */
+                text-tranform:uppercase;
+                margin-left: 67px;
+              }
+
+              .button-arrow {
+                width: 24px; /* Set width for the arrow icon */
+                height: auto; /* Maintain aspect ratio */
+                margin-left: 19px; /* Add margin between text and arrow */
+                z-index: 1; /* Keeps arrow above the background */
+
+              }
+
+
+
+
+                                .close-icon {
+                                  width: 22px;
+                                  height: 22px;
+                                  position: absolute;
+                                  top: 10px;
+                                  right: 10px;
+                                  cursor: pointer;
+                                  opacity: 1;
+                                }
+                          .color-box.active {
+                           /* Highlight the active color */
+                            background:#000000;
+
+                        }
+                      .color-box.active .color-text {
+                          color: #FFFFFF; /* White text color */
+                      }
+                        .product-image {
+                          /* Ensure the product image background remains unaffected by color selection */
+                          background-color: transparent; /* Prevent image background from changing */
+                        }
+             /* Base styles for desktop view remain unchanged */
+
+          /* Mobile view for width 342px */
+         /* Mobile view for width 342px */
+        @media (max-width: 420px) {
+          /* Body width adjusted for mobile view */
+          body {
+            width: 342px;
+            height:617px;
+            margin: 0 auto; /* Center the container on small screens */
+          }
+
+          /* Grid for product images to ensure two images per row */
+          .product-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two images per row */
+            gap: 10px; /* Space between grid items */
+          }
+
+          /* Center the text "Tisso Vison in World" */
+          .custom-text p {
+            text-align: center;
+          }
+
+          /* Set the product image dimensions for mobile view */
+          .product-image {
+            width: 169px;
+            height: 186px;
+            object-fit: cover; /* Ensure the image scales correctly */
+          }
+
+          /* Reduce margins/paddings for mobile view */
+          .custom-grid-section {
+            margin: 20px 10px; /* Adjust the margin for mobile */
+            width: 100%; /* Full width for mobile */
+          }
+
+          .custom-text {
+            width: auto; /* Full width for mobile */
+            height: auto; /* Adjust height for mobile */
+          }
+
+          /* Adjust product listing grid for mobile */
+          .product-listings {
+            grid-template-columns: repeat(2, 1fr); /* Two products per row on mobile */
+            gap: 10px; /* Adjust gap for small screens */
+            margin-top: 15px; /* Reduce space on mobile */
+          }
+
+          /* Adjust product item sizes */
+          .product-item {
+            width: auto; /* Full width for mobile */
+            height: auto; /* Flexible height for mobile */
+            position: relative; /* Ensure relative positioning for child elements */
+          }
+
+
+  .popup-content {
+
+      width: 335px; /* Set width for popup content */
+
+
+  }
+
+
+
+
+      .icon-container {
+          position: absolute; /* Ensure it's positioned within the product item */
+          top: 10px; /* Adjust as necessary */
+          left: 10px; /* Adjust as necessary */
+        z-index: 100;
+      }
+
+
+
+
+          /* Adjust color and size boxes for mobile */
+
+
+
+
+
+
+      .product-item    .icon-container   .add-icon {
+        width: 15px !important; /* Ensure the icon width is applied */
+        height: 15px !important; /* Ensure the icon height is applied */
+        top: 10px !important; /* Adjust as necessary */
+        left: 10px !important; /* Adjust as necessary */
+        opacity: 1 !important; /* Ensure the icon is visible */
+        position: absolute !important; /* Ensure it stays within the product item */
+    }
+
+
+
+
+        }
+
